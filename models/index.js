@@ -8,6 +8,9 @@ const Calendar = require("./calendar");
 User.hasMany(Journal);
 Journal.belongsTo(User);
 
+// User.hasMany(Meds);
+// Meds.belongsTo(User);
+
 module.exports = {
   User,
   Journal,
