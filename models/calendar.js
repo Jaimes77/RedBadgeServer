@@ -14,7 +14,7 @@ const Calendar = db.define("calendar", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  userid: {
+  userId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
