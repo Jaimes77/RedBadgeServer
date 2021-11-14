@@ -31,7 +31,7 @@ router.put("/:id", validateSession, function (req, res) {
     .catch((err) => res.status(500).json({ error: err }));
 });
 
-router.get("/", validateSession, (req, res) => {
+router.get("/mine", validateSession, (req, res) => {
   Meds.findAll({ where: { userId: req.user.id } })
     .then((med) => res.status(200).json(med))
     .catch((err) => res.status(500).json({ error: err }));

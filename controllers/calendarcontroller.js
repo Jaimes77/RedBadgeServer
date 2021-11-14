@@ -31,7 +31,7 @@ router.put("/:id", validateSession, function (req, res) {
     .catch((err) => res.status(500).json({ error: err }));
 });
 
-router.get("/", validateSession, (req, res) => {
+router.get("/mine", validateSession, (req, res) => {
   Calendar.findAll({ where: { userId: req.user.id } })
     .then((events) => res.status(200).json(events))
     .catch((err) => res.status(500).json(events));
