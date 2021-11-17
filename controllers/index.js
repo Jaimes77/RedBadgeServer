@@ -1,4 +1,6 @@
 module.exports = {
   User: require("./usercontroller"),
-  // Post: require("./journalcontroller"),
+  Journal: require("./journalcontroller"),
+  Meds: require("./medscontroller"),
+  Calendar: require("./calendarcontroller"),
 };

@@ -1,8 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { Router } = require("express");
-const { User } = require("../models/user");
-const validateSession = require("../middleware/validate-session");
+const { User } = require("../models");
 
 const router = Router();
 
@@ -13,7 +12,7 @@ router.post("/create", function (req, res) {
     username: req.body.user.username,
     email: req.body.user.email,
     passwordhash: bcrypt.hashSync(req.body.user.passwordhash, 13),
-    role: req.body.user.role,
+    role: "user",
   })
     .then(function createSuccess(user) {
       let token = jwt.sign(
@@ -23,7 +22,6 @@ router.post("/create", function (req, res) {
           lastname: user.lastname,
           username: user.username,
           email: user.email,
-          role: user.role,
         },
         process.env.JWT_SECRET,
         { expiresIn: 60 * 60 * 24 }
@@ -35,7 +33,7 @@ router.post("/create", function (req, res) {
         sessionToken: token,
       });
     })
-    .catch((e) => res.status(500).json({ message: e.message }));
+    .catch((e) => res.status(500).json({ message: e }));
 });
 
 router.post("/login", function (req, res) {

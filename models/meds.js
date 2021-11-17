@@ -6,15 +6,15 @@ const Meds = db.define("meds", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  frequency: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
   dose: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  userid: {
+  frequency: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  userId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
